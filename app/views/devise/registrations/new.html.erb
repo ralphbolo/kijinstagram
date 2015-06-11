@@ -1,29 +1,48 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="col-xs-7">
+    <h2><b>Sign up</b> - it's fast, easy and free</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+      <div class="form-group">
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, class: 'form-control', autofocus: true %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off" %>
+        </div>
+
+        <div class="actions" id="sign-up-btn">
+          <%= f.submit "Sign up", class: 'btn btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
+  <div class="col-xs-5">
+    <h2>Why Register?</h2>
+    <hr>
+    <p>Registration is not required, but by registering you will be able to:</p>
+    <hr>
+    <ul class="fa-ul">
+      <li><i class= "fa-li fa fa-check"></i> Post, edit or delete ads without having to confirm each action by email</li>
+      <li><i class= "fa-li fa fa-check"></i>Access saved ads in your Watchlist from all of your devices</li>
+      <li><i class= "fa-li fa fa-check"></i>Easily promote multiple ads to gain more visibility and view order history</li>
+      <li><i class= "fa-li fa fa-check"></i>Reserve your own nickname</li>
+      <li><i class= "fa-li fa fa-check"></i>And much more!</li>
+    </ul>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
