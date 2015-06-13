@@ -1,1 +1,17 @@
-<h1>Home page</h1>
+
+<div class="row">
+	<% @items.each do |item| %>
+		<div class="col-xs-6 col-md-3">
+			<div class="panel panel-default">
+			  <div class="panel-body">
+			  	<!-- to-do need to to enable images-->
+			    <img src="https://img1.etsystatic.com/068/2/6200203/il_570xN.785566047_psed.jpg" alt="product" class="item-image">
+			  </div>
+			  <div class="panel-footer">
+			  	<span class="item-title"><%= item.title %></span>
+			  	<span class="item-price">$<%= item.price %></span>
+			  </div>
+			</div>	
+		</div>
+	<% end %>
+</div>

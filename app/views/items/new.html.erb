@@ -1,13 +1,22 @@
 
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-xs-6 col-xs-offset-3">
   	<div class="panel panel-info">
   		<div class="panel-heading">
   			<h2>Sell an item</h2>
   		</div>
   		<div class="panel-body">
 		    <%= form_for(@item) do |f| %>
+		    	<div class="error-msg">
+		    		<% if @item.errors.any? %>
+							<ul class="fa-ul">
+  							<% @item.errors.full_messages.each do |msg| %>
+    							<li><i class="fa-li fa fa-exclamation-triangle"></i><%= msg %></li>
+  							<% end %>
+							</ul>
+						<% end %>
+		    	</div>
 		      <div class="form-group">
 			      <%= f.label :title %>
 			      <%= f.text_field :title, class: 'form-control' %>      	
@@ -20,7 +29,7 @@
 
 		      <div class="form-group">
 			      <%= f.label :description %>
-			      <%= f.text_area :title, class: 'form-control' %>   
+			      <%= f.text_area :description, class: 'form-control' %>   
 		      </div>
 
 		      <div class="form-group">
