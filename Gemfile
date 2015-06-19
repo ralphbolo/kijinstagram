@@ -48,6 +48,6 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '>= 3.2'
-gem "refile", require: "refile/rails"
-gem "refile-mini_magick"
+#gem "refile", require: "refile/rails"
+#gem "refile-mini_magick"
 gem 'font-awesome-sass'
